@@ -1,0 +1,119 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+    &__logo {
+        font-size: 35px;
+    }
+}
+
+.game {
+    margin: 50px auto 0px;
+    display: flex;
+    justify-content: center;
+    &__rows {
+        width: 30px;
+        padding-top: 30px;
+    }
+    &__row {
+        height: 150px;
+        width: 100%;
+        background: rgb(96, 218, 116);
+        margin-top: 5px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+    }
+    &__col {
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        margin-left: 5px;
+    }
+    &__head {
+        width: 100%;
+        height: 30px;
+        background: rgb(96, 218, 116);
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+    }
+    &__item {
+        width: 100%;
+        height: 150px;
+        background: rgb(58, 126, 214);
+        margin-top: 5px;
+        border-radius: 5px;
+    }
+}
+
+.pads {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    width: 370px;
+    margin: 50px auto 0px;
+    justify-content: center;
+}
+
+.pad {
+    position: relative;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    background: rgb(96, 218, 116);
+    margin: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__icon {
+        width: 35px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .game {
+        &__rows {
+            width: 25px;
+            min-width: 25px;
+            padding-top: 25px;
+        }
+        &__row {
+            height: 100px;
+        }
+        &__col {
+            width: 100px;
+            min-width: 100px;
+        }
+        &__head {
+            height: 25px;
+        }
+        &__item {
+            height: 100px;
+        }
+    }
+    .pads {
+        width: 300px;
+    }
+    .pad {
+        position: relative;
+        border-radius: 5px;
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+        background: rgb(96, 218, 116);
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__icon {
+            width: 25px;
+        }
+    }
+}
