@@ -9,34 +9,30 @@
     }
 }
 
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 .game {
-    margin: 50px auto 0px;
+    position: relative;
+    margin: 70px 15px 0px 35px;
     display: flex;
     justify-content: center;
-    &__rows {
-        width: 30px;
-        padding-top: 30px;
-    }
-    &__row {
-        height: 150px;
+    width: 80%;
+    max-width: 500px;
+    &__cols {
         width: 100%;
-        background: rgb(96, 218, 116);
-        margin-top: 5px;
-        border-radius: 5px;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 700;
+        position: absolute;
+        top: -34px;
     }
     &__col {
-        display: flex;
-        flex-direction: column;
-        width: 150px;
-        margin-left: 5px;
-    }
-    &__head {
-        width: 100%;
         height: 30px;
+        margin: 2px;
         background: rgb(96, 218, 116);
         border-radius: 5px;
         display: flex;
@@ -44,12 +40,57 @@
         align-items: center;
         font-weight: 700;
     }
-    &__item {
-        width: 100%;
-        height: 150px;
-        background: rgb(58, 126, 214);
-        margin-top: 5px;
+    &__rows {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: absolute;
+        left: -34px;
+    }
+    &__row {
+        margin: 2px;
+        background: rgb(96, 218, 116);
+        width: 30px;
         border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 500px;
+    }
+    &__item {
+        position: relative;
+        background: rgb(63, 135, 230);
+        border-radius: 5px;
+        margin: 2px;
+        &--wrong {
+            background-color: rgb(250, 112, 112);
+        }
+        &--ready {
+            cursor: pointer;
+            transition: background 0.1s;
+            &:hover {
+                background-color: rgba(63, 135, 230, 0.699);
+            }
+        }
+        &--end {
+            background-color: rgb(100, 255, 170);
+        }
+        & img {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20%;
+            &:last-of-type {
+                top: auto;
+                bottom: 10px;
+            }
+        }
     }
 }
 
@@ -77,41 +118,81 @@
     }
 }
 
+.play,
+.restart {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 7px;
+    background: rgb(58, 126, 214);
+    box-shadow: inset;
+    cursor: pointer;
+    & img {
+        width: 30px;
+    }
+}
+
+.arrow {
+    &--left {
+        transform: rotate(-90deg);
+    }
+    &--right {
+        transform: rotate(90deg);
+    }
+    &--top {
+        transform: rotate(0deg);
+    }
+    &--bottom {
+        transform: rotate(180deg);
+    }
+}
+
+.playSVG {
+    fill: #ffffff;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    not supported by any browser */
+}
+
 @media only screen and (max-width: 600px) {
     .game {
         &__rows {
-            width: 25px;
-            min-width: 25px;
-            padding-top: 25px;
+            left: -24px;
         }
         &__row {
-            height: 100px;
+            width: 20px;
+        }
+        &__cols {
+            top: -24px;
         }
         &__col {
-            width: 100px;
-            min-width: 100px;
-        }
-        &__head {
-            height: 25px;
-        }
-        &__item {
-            height: 100px;
+            height: 20px;
         }
     }
     .pads {
         width: 300px;
     }
     .pad {
-        position: relative;
-        border-radius: 5px;
         width: 50px;
         min-width: 50px;
         height: 50px;
-        background: rgb(96, 218, 116);
         margin: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         &__icon {
             width: 25px;
         }
